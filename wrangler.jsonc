@@ -32,8 +32,8 @@
   ],
   "routes": [
     {
-      "pattern": "payload.sonicjs.com/*",
-      "zone_name": "sonicjs.com"
+      "pattern": "payload.sonicjs.com",
+      "custom_domain": true
     }
   ]
 }
