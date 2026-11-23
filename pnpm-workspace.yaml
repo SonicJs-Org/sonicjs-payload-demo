@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  skills: true
+  workerd: true
+permissions:
+  payload:
+    skills: true
+  skills:
+    skills: true

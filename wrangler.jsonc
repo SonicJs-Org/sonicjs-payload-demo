@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "payload-sonicjs",
+  "compatibility_date": "2025-08-15",
+  "compatibility_flags": [
+    // Enable Node.js API
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
+    "nodejs_compat",
+    // Allow to fetch URLs in your app
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
+    "global_fetch_strictly_public",
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "d1_databases": [
+    {
+      "binding": "D1",
+      "database_id": "74ea36bf-6968-47ed-a297-ce837c83b277",
+      "database_name": "payload-sonicjs",
+      "remote": true,
+    },
+  ],
+  "services": [],
+  "r2_buckets": [
+    {
+      "binding": "R2",
+      "bucket_name": "payload-sonicjs-media",
+    },
+  ],
+  "routes": [
+    {
+      "pattern": "payload.sonicjs.com/*",
+      "zone_name": "sonicjs.com"
+    }
+  ]
+}
