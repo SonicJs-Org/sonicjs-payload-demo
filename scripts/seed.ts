@@ -173,6 +173,12 @@ async function main() {
       const firstName = pick(FIRST, rand)
       const lastName = pick(LAST, rand)
 
+      const emailLocal = `${firstName}.${lastName}${idx + 1}`
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')  // strip diacritics
+        .replace(/[^a-z0-9.]/g, '')        // strip non-ascii
+
       return apiPost(
         '/api/employees',
         {
@@ -181,7 +187,7 @@ async function main() {
           department: deptIds[deptName],
           jobTitle: pick(TITLES[deptName], rand),
           region: regionIds[regionName],
-          email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${idx + 1}@example.com`,
+          email: `${emailLocal}@example.com`,
           phone: `+1-555-${String(idx + 1).padStart(5, '0')}`,
           avatarSeed: `employee-${idx + 1}-${firstName}-${lastName}`,
         },
