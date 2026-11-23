@@ -53,6 +53,9 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  auth: {
+    passwordHashIterations: 100000,
+  },
   collections: [Users, Media, Departments, Regions, Employees],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
