@@ -36,7 +36,7 @@ const DRY_RUN = process.argv.includes('--dry-run')
 // D1 database name as configured in wrangler.jsonc
 const DB_NAME = 'payload-sonicjs'
 // Rows per INSERT statement (500 is a safe sweet spot for D1)
-const ROWS_PER_INSERT = 500
+const ROWS_PER_INSERT = 50
 // Employees per SQL chunk file (~1 MB each at 500 rows/insert)
 const EMPLOYEES_PER_CHUNK = 5_000
 
