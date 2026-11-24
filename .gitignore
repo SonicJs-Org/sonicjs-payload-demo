@@ -52,3 +52,7 @@ node_modules/
 # OpenNext
 .open-next
 .wrangler
+# Seed data (generated files)
+seed/*.json
+seed/*.sql
+seed/.tmp/
